@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+
+.wrapper {
+  padding: 80px 0;
+  
+  @media (width <= 612px) {
+    text-align: center;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+
+  @media (width <= 612px) {
+    flex-direction: column;
+  }
+}
+
+.logo {
+  width: fit-content;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+.sosmed {
+  display: flex;
+  justify-content: center;
+  column-gap: 40px;
+  row-gap: 16px;
+  flex-wrap: wrap;
+  
+  a {
+    font-size: $font-size-xs;
+  }
+}
+
+.divider {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  height: 2px;
+  background-color: $color-input-background;
+}

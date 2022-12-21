@@ -1,0 +1,43 @@
+@import '../../../styles/variables';
+
+.btn{
+  @include text-button;
+
+  border-radius: 30px;
+  padding: 12px 32px;
+  transition: .2s ease-in-out;
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  -webkit-tap-highlight-color: transparent;
+
+  &--primary{
+    background-color: $color-primary;
+    color: white;
+
+    &:hover{
+      border-radius: 12px;
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &--secondary{
+    background-color: $color-secondary;
+    color: $color-primary;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: $color-primary;
+    }
+
+    &:hover{
+      border-radius: 12px;
+      background-color: $color-secondary-hover;
+    }
+  }
+
+  &--disabled{
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,118 @@
+@import "../../../styles/variables";
+
+.wrapper {
+  padding-bottom: 200px;
+
+  @media (width <= $dimension-mobile-l) {
+    padding-bottom: 160px;
+  }
+}
+
+.outer_label {
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: $gap-laptop;
+}
+
+.card {
+  display: flex;
+  border: 2px solid $color-line;
+  border-radius: $border-radius-lg;
+  transition: .2s ease-in-out;
+  overflow: hidden;
+
+  @media (min-width: $dimension-tablet) {
+    & > * {
+      flex-basis: 50%;
+    }
+  }
+
+  @media (max-width: $dimension-tablet) {
+    flex-direction: column;
+  }
+
+  &:hover {
+    background-color: white;
+    box-shadow: 8px 8px 32px 2px rgba(150, 160, 181, 0.3);
+  }
+  &:hover .card__image img {
+    scale: 1.05;
+  }
+}
+
+.card__container {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 40px;
+
+  @media (max-width: $dimension-tablet) {
+    order: 2;
+  }
+  @media (max-width: $dimension-mobile-l) {
+    padding: 24px;
+  }
+  @media (max-width: $dimension-mobile-m) {
+    padding: 16px;
+  }
+}
+
+.card__title {
+  margin-bottom: 8px;
+
+  @media ($dimension-tablet <= width <= $dimension-laptop) {
+    font-size: $font-size-lg;
+    line-height: normal;
+  }
+  @media (width <= $dimension-mobile-l) {
+    font-size: $font-size-lg;
+    line-height: normal;
+  }
+}
+
+.card__label {
+  color: $color-label;
+  font-weight: 500;
+  margin-bottom: 24px;
+
+  @media ($dimension-tablet <= width <= $dimension-laptop) {
+    font-size: $font-size-xs;
+    line-height: normal;
+  }
+  @media (width <= $dimension-mobile-l) {
+    font-size: $font-size-xs;
+    line-height: normal;
+  }
+}
+
+.card__body {
+  @media ($dimension-tablet <= width <= $dimension-laptop) {
+    font-size: $font-size-sm;
+    line-height: 27px;
+  }
+  @media (width <= $dimension-mobile-l) {
+    font-size: $font-size-sm;
+    line-height: 27px;
+  }
+}
+
+.card__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 400px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .2s ease-in-out;
+  }
+}

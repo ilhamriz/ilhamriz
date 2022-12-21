@@ -1,0 +1,131 @@
+@import "./variables";
+
+html,
+body {
+  font-family: $font-family-body;
+  color: $color-body;
+  background-color: $color-background;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  &::selection {
+    background-color: $color-primary;
+    color: white;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+p {
+  @include text-body;
+  font-size: $font-size-sm;
+  line-height: 27px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.header-1 {
+  @include text-header;
+  font-size: $font-size-xl4;
+  letter-spacing: -0.05em;
+}
+.header-2 {
+  @include text-header;
+  font-size: $font-size-xl2;
+  line-height: 52px;
+
+  @media (max-width: $dimension-tablet) {
+    font-size: $font-size-xl;
+    line-height: 40px;
+  }
+}
+.header-3 {
+  @include text-header;
+  font-size: $font-size-xl;
+  text-transform: capitalize;
+  // line-height: 40px;
+  letter-spacing: -0.02em;
+}
+.header-3-body {
+  @include text-body;
+  font-size: $font-size-xl;
+  text-transform: capitalize;
+  line-height: 40px;
+}
+.header-4-title {
+  @include text-header;
+  font-size: $font-size-lg;
+  line-height: 34px;
+}
+.header-4 {
+  @include text-body;
+  font-size: $font-size-lg;
+  // line-height: 34px;
+}
+.text-body {
+  @include text-body;
+  font-size: $font-size-sm;
+  line-height: 27px;
+}
+.text-body-2 {
+  @include text-body;
+  font-size: $font-size-md;
+  line-height: 28px;
+}
+.text-body-2-bold {
+  @include text-body;
+  font-size: $font-size-md;
+  font-weight: 600;
+  line-height: 30px;
+}
+.text-body-3 {
+  @include text-body;
+  font-size: $font-size-xs;
+}
+.text-link {
+  font-size: $font-size-sm;
+  color: $color-body;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    color: $color-title;
+  }
+}
+
+// SCROLL BAR
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: $color-background;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color-placeholder;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $color-label;
+}

@@ -1,0 +1,26 @@
+@import "../../../styles/variables";
+
+.wrapper {
+  padding: 300px 0 200px;
+  display: flex;
+  align-items: center;
+
+  @media (width <= $dimension-mobile-m) {
+    padding-top: 200px;
+  }
+}
+
+.content {
+  color: $color-label;
+  @media (width <= $dimension-tablet) {
+    font-size: $font-size-xl3;
+    letter-spacing: -0.04em;
+  }
+  @media (width <= $dimension-mobile-l) {
+    font-size: $font-size-xl2;
+  }
+}
+
+.title {
+  color: $color-title;
+}
