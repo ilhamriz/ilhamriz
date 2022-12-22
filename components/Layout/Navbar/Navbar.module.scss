@@ -7,7 +7,8 @@
   top: 0;
   z-index: 2;
   transition: 0.3s ease-in-out;
-  background-color: $color-background;
+  background-color: rgba(247, 247, 247, 0.8);
+  backdrop-filter: blur(8px);
 
   &--scrolled {
     transform: translateY(-100%);
@@ -63,11 +64,12 @@
 .nav__menu__item {
   position: relative;
   font-size: $font-size-xs;
-  color: $color-body;
+  font-weight: 600;
+  color: $color-title;
+  cursor: pointer;
 
   &:hover {
-    color: $color-title;
-    font-weight: 500;
+    color: $color-body;
   }
 
   &.active {

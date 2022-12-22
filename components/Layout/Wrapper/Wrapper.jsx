@@ -5,7 +5,7 @@ import css from "./Wrapper.module.scss";
 
 export const siteTitle = "Ilhamriz";
 
-function Component({ children }) {
+function Component({ home, children }) {
   return (
     <>
       <h1 className="hidden">Ilhamriz</h1>
@@ -24,7 +24,7 @@ function Component({ children }) {
         <title>{siteTitle}</title>
       </Head>
 
-      <Navbar />
+      <Navbar isHome={home} />
 
       <main>{children}</main>
 

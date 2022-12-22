@@ -4,7 +4,7 @@ import { CTA, Hero, Work } from "../components/Sections";
 
 export default function Home() {
   return (
-    <Wrapper>
+    <Wrapper home>
       <Box>
         <Hero />
         <Work />

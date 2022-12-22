@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonMain } from "../../Form";
 
-function Component() {
+function Component({ isHome }) {
   const [isMenu, setIsMenu] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -70,9 +70,9 @@ function Component() {
         <h2 className="hidden">Navigation</h2>
         <Container maxWidth="lg">
           <Box className={css.nav__container}>
-            <Box className={css.nav__logo}>
+            <Link href="/" className={css.nav__logo}>
               <Image src="/Logo.svg" alt="Logo" width={40} height={40} />
-            </Box>
+            </Link>
             <Box
               className={`${css.nav__icon} ${isMenu ? css.open__icon : ""}`}
               onClick={() => setIsMenu(!isMenu)}
@@ -84,26 +84,32 @@ function Component() {
             </Box>
             <Box className={`${css.nav__menu} ${isMenu ? css.show : ""}`}>
               <Box className={css.nav__menu__list}>
-                <ComponentLinkScroll
-                  target="Home"
-                  isTablet={isTablet}
-                  setIsMenu={setIsMenu}
-                />
-                <ComponentLinkScroll
-                  target="About"
-                  isTablet={isTablet}
-                  setIsMenu={setIsMenu}
-                />
-                <ComponentLinkScroll
-                  target="Work"
-                  isTablet={isTablet}
-                  setIsMenu={setIsMenu}
-                />
-                <ComponentLinkScroll
-                  target="Contact"
-                  isTablet={isTablet}
-                  setIsMenu={setIsMenu}
-                />
+                <Link href="/about" className={css.nav__menu__item}>
+                  About
+                </Link>
+                {isHome ? (
+                  <>
+                    <ComponentLinkScroll
+                      target="Work"
+                      isTablet={isTablet}
+                      setIsMenu={setIsMenu}
+                    />
+                    <ComponentLinkScroll
+                      target="Contact"
+                      isTablet={isTablet}
+                      setIsMenu={setIsMenu}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Link href="/#Work" className={css.nav__menu__item}>
+                      Work
+                    </Link>
+                    <Link href="/#Contact" className={css.nav__menu__item}>
+                      Contact
+                    </Link>
+                  </>
+                )}
                 <Link href={"/"} download>
                   <ButtonMain>Resume</ButtonMain>
                 </Link>
@@ -116,10 +122,9 @@ function Component() {
   );
 }
 
-const ComponentLinkScroll = ({ target, isTablet, setIsMenu }) => {
+const ComponentLinkScroll = ({ target, setIsMenu }) => {
   return (
     <LinkScroll
-      activeClass={css.active}
       spy={true}
       className={css.nav__menu__item}
       to={target}

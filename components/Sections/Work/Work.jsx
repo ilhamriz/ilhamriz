@@ -1,6 +1,7 @@
 import { Box, Container } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { Element } from "react-scroll";
 import { ButtonMain } from "../../Form";
 import css from "./Work.module.scss";
 
@@ -37,55 +38,59 @@ const works = [
 
 function Component() {
   return (
-    <section className={css.wrapper}>
+    <section id="Work" className={css.wrapper}>
       <h2 className="hidden">Work</h2>
-      <Container maxWidth="lg">
-        <Box className={`text-body-2 ${css.outer_label}`}>Current Projects</Box>
-        <Box className={css.container}>
-          {works.map((work, id) => (
-            <article key={id} className={css.card}>
-              <h3 className="hidden">{work.title}</h3>
+      <Element name="Work">
+        <Container maxWidth="lg">
+          <Box className={`text-body-2 ${css.outer_label}`}>
+            Current Projects
+          </Box>
+          <Box className={css.container}>
+            {works.map((work, id) => (
+              <article key={id} className={css.card}>
+                <h3 className="hidden">{work.title}</h3>
 
-              <Box className={css.card__container}>
-                <Box className={css.card__content}>
-                  <Box className={`header-3 ${css.card__title}`}>
-                    {work.title}
+                <Box className={css.card__container}>
+                  <Box className={css.card__content}>
+                    <Box className={`header-3 ${css.card__title}`}>
+                      {work.title}
+                    </Box>
+                    <Box className={css.card__label}>{work.label}</Box>
+                    <Box className={`text-body-2 ${css.card__body}`}>
+                      {work.body}
+                    </Box>
                   </Box>
-                  <Box className={css.card__label}>{work.label}</Box>
-                  <Box className={`text-body-2 ${css.card__body}`}>
-                    {work.body}
-                  </Box>
-                </Box>
-                <Link href={work.url} style={{ width: "fit-content" }}>
-                  <ButtonMain
-                    styles="secondary"
-                    style={{ width: "fit-content" }}
-                  >
-                    View Project
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
+                  <Link href={work.url} style={{ width: "fit-content" }}>
+                    <ButtonMain
+                      styles="secondary"
+                      style={{ width: "fit-content" }}
                     >
-                      <path fill="none" d="M0 0h24v24H0z" />
-                      <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
-                    </svg>
-                  </ButtonMain>
-                </Link>
-              </Box>
-              <Box className={css.card__image}>
-                <Image
-                  src={`/images/works/${work.image}.jpg`}
-                  width={1500}
-                  height={1125}
-                  alt={`${work.title} Cover`}
-                />
-              </Box>
-            </article>
-          ))}
-        </Box>
-      </Container>
+                      View Project
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                      >
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
+                      </svg>
+                    </ButtonMain>
+                  </Link>
+                </Box>
+                <Box className={css.card__image}>
+                  <Image
+                    src={`/images/works/${work.image}.jpg`}
+                    width={1500}
+                    height={1125}
+                    alt={`${work.title} Cover`}
+                  />
+                </Box>
+              </article>
+            ))}
+          </Box>
+        </Container>
+      </Element>
     </section>
   );
 }
