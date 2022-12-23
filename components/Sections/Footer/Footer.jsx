@@ -44,7 +44,7 @@ function Component() {
             </Box>
           </Box>
           <Box className={css.divider} />
-          <Box className={`text-body-3`}>
+          <Box mt={3} className={`text-body-3`}>
             ©2022 Design and Built by Ilhamriz with Next.js
           </Box>
         </Box>

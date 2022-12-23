@@ -70,7 +70,7 @@ button {
 .header-4-title {
   @include text-header;
   font-size: $font-size-lg;
-  line-height: 34px;
+  // line-height: 34px;
 }
 .header-4 {
   @include text-body;
@@ -91,7 +91,7 @@ button {
   @include text-body;
   font-size: $font-size-md;
   font-weight: 600;
-  line-height: 30px;
+  line-height: 28px;
 }
 .text-body-3 {
   @include text-body;
@@ -107,25 +107,24 @@ button {
   }
 }
 
+.divider {
+  height: 2px;
+  background-color: $color-input-background;
+}
+
+
 // SCROLL BAR
-/* width */
 ::-webkit-scrollbar {
   width: 12px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   border-radius: 10px;
   background: $color-background;
 }
- 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: $color-placeholder;
   border-radius: 10px;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: $color-label;
 }

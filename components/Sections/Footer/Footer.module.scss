@@ -13,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+  margin-bottom: 40px;
 
   @media (width <= 612px) {
     flex-direction: column;
@@ -38,8 +39,6 @@
 }
 
 .divider {
-  margin-top: 40px;
-  margin-bottom: 24px;
   height: 2px;
   background-color: $color-input-background;
 }
