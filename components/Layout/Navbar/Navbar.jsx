@@ -110,7 +110,7 @@ function Component({ isHome }) {
                     </Link>
                   </>
                 )}
-                <Link href={"/"} download>
+                <Link href="/Ilham-Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <ButtonMain>Resume</ButtonMain>
                 </Link>
               </Box>
