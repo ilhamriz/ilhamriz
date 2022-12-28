@@ -18,7 +18,7 @@ const works = [
     label: "UI Design. Project Management.",
     body: "Aims to educate women about cervical cancer, starting from the symptoms and things that can cause cervical cancer.",
     image: "GBKS",
-    url: "https://play.google.com/store/apps/details?id=com.todoodev.gbks",
+    url: "https://bit.ly/ilham-gbks",
   },
   {
     title: "Adventure",
@@ -32,7 +32,7 @@ const works = [
     label: "Design. Development.",
     body: "Provide information about the number of covid-19 cases in the North Sumatra area, referral hospitals, and call center.",
     image: "kawalcovid",
-    url: "https://www.bersamaamerta.com/",
+    url: "https://bit.ly/ilham-kawalcovid",
   },
 ];
 
