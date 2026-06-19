@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --color-bg: #100e0c;
+  --color-bg-2: #181613;
+  --color-bg-3: #211f1c;
+  --color-surface: #111a14;
+  --color-text: #f4f1ec;
+  --color-text-dim: #bbb7af;
+  --color-text-muted: #77746e;
+  --color-border: #302d2b;
+  --color-border-2: #4b4743;
+  --color-accent: #a193ff;
+  --color-accent-hover: #8a74ff;
+  --color-muted: #8a74ff;
+  --color-gold: #b8a055;
+  --radius: 0.5rem;
+}
+/* 
+--color-border: #1e2e22;
+--color-accent: #2d6a3f;
+--color-accent-hover: #3d8c52;
+--color-muted: #8faf8f; */
+/* --font-serif: Georgia, "Times New Roman", serif; */
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-serif: var(--font-playfair), serif;
+
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --color-bg: var(--color-bg);
+  --color-bg-2: var(--color-bg-2);
+  --color-bg-3: var(--color-bg-3);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-border-2: var(--color-border-2);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-text: var(--color-text);
+  --color-text-dim: var(--color-text-dim);
+  --color-text-muted: var(--color-text-muted);
+  --color-muted: var(--color-muted);
+  --color-gold: var(--color-gold);
+
+  --max-w-container: 1280px;
+  --horizontal-padding: clamp(24px, 4vw, 48px);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+  }
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+  }
+}
+
+@layer utilities {
+  .font-serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+  }
+}
+
+@layer components {
+  .max-w-container {
+    max-width: var(--max-w-container);
+  }
+
+  .text-h2 {
+    @apply max-w-5xl font-sans leading-none font-medium tracking-tight text-[clamp(32px,4.5vw,52px)];
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
