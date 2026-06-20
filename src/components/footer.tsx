@@ -1,22 +1,13 @@
-// import { ArrowUpRight } from 'lucide-react'
-
 export function Footer() {
   return (
-    <footer className="border-t border-border px-6 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-        <span className="text-sm text-muted">Muhammad Ilham Rizky</span>
-        <span className="order-last text-xs text-muted sm:order-none">
-          © 2025 · Built with Next.js
+    <footer className="border-t border-border px-6 py-8">
+      <div className="max-w-container mx-auto flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <span className="text-sm font-medium text-text">
+          Muhammad Ilham Rizky
         </span>
-        <a
-          href="https://www.linkedin.com/in/muhammad-ilham-rizky"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-text"
-        >
-          LinkedIn
-          {/* <ArrowUpRight className="h-3.5 w-3.5" /> */}
-        </a>
+        <span className="font-mono text-xs text-text-muted">
+          &copy; 2026 · Built with Next.js
+        </span>
       </div>
     </footer>
   );
