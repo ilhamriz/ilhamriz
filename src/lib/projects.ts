@@ -27,7 +27,7 @@ export type Project = {
   };
   tech: string[];
   team: string;
-  isGallery?: boolean;
+  gallery?: ProjectImage[];
 };
 
 export const projects: Project[] = [
@@ -165,6 +165,16 @@ export const projects: Project[] = [
     year: "Aug 2025 - Jan 2026",
     overview:
       "Android app for calculating daily nutritional requirements for toddlers, built for parents.",
+    overviewImage: [
+      {
+        file: "/assets/aksi-gizi/overview-1.jpg",
+        alt: "Aksi Gizi home page, input form, and results",
+      },
+      {
+        file: "/assets/aksi-gizi/overview-2.jpg",
+        alt: "The app icon and the Android home screen showing the app installed",
+      },
+    ],
     bullets: [
       "Built the entire app independently — UI, navigation, and data integration with SheetDB API",
       "First project using Flutter and Dart — picked up the framework specifically for this build",
@@ -179,9 +189,21 @@ export const projects: Project[] = [
       },
       {
         text: "Designed input forms with validation, prioritizing usability for parents as primary users",
+        images: [
+          {
+            file: "/assets/aksi-gizi/after-point3.jpg",
+            alt: "A validation error state",
+          },
+        ],
       },
       {
         text: "Built data sync flow with Google Sheets via SheetDB API for lightweight backend storage",
+        images: [
+          {
+            file: "/assets/aksi-gizi/after-point4.jpg",
+            alt: "Diagram flow from Input form until stores rows to Google Sheet",
+          },
+        ],
       },
     ],
     tech: ["Flutter", "Dart", "Google Sheets", "SheetDB API"],
@@ -211,7 +233,56 @@ export const projects: Project[] = [
     ],
     tech: ["Figma", "UI Design", "Visual Design"],
     team: "Remote collaboration with UK-based client team. Weekly delivery cadence.",
-    isGallery: true,
+    gallery: [
+      {
+        file: "/assets/tinthumb/blue-cascade.jpg",
+        alt: "Blue Cascade",
+      },
+      {
+        file: "/assets/tinthumb/canopy.jpg",
+        alt: "Canopy",
+      },
+      {
+        file: "/assets/tinthumb/clean-advice.jpg",
+        alt: "Clean Advice",
+      },
+      {
+        file: "/assets/tinthumb/haya-beauty.jpg",
+        alt: "Haya Beauty",
+      },
+      {
+        file: "/assets/tinthumb/neotech-dark.jpg",
+        alt: "Neotech dark",
+      },
+      {
+        file: "/assets/tinthumb/neotech-light.jpg",
+        alt: "Neotech light",
+      },
+      {
+        file: "/assets/tinthumb/smart-freight-funding.jpg",
+        alt: "Smart freight funding",
+      },
+      {
+        file: "/assets/tinthumb/people-opportunities.jpg",
+        alt: "People opportunities",
+      },
+      {
+        file: "/assets/tinthumb/hvl-gmbh.jpg",
+        alt: "hvl gmbh",
+      },
+      {
+        file: "/assets/tinthumb/mvp-dev.jpg",
+        alt: "mvp dev",
+      },
+      {
+        file: "/assets/tinthumb/park-west-palm.jpg",
+        alt: "Park west palm",
+      },
+      {
+        file: "/assets/tinthumb/shakoorian-law.jpg",
+        alt: "Shakoorian law",
+      },
+    ],
   },
 ];
 
