@@ -1,16 +1,28 @@
 import { cn } from "@/lib/utils";
 
-export const ArrowUpRight = ({ size = 24, className = "" }) => (
-  <svg
-    width={size}
-    height={size}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    className={cn("fill-foreground", className)}
-    aria-hidden
+export const ArrowUpRight = ({
+  size = 24,
+  className = "",
+  useAnimation = true,
+}) => (
+  <div
+    className={
+      useAnimation
+        ? "group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+        : ""
+    }
   >
-    <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
-  </svg>
+    <svg
+      width={size}
+      height={size}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      className={cn("fill-foreground", className)}
+      aria-hidden
+    >
+      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path>
+    </svg>
+  </div>
 );
 export const ArrowRight = ({ size = 24, className = "" }) => (
   <svg
