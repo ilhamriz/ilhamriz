@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SectionNavLink } from "@/components/section-nav-link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { colsMap, getProject, projects } from "@/lib/projects";
@@ -60,12 +61,12 @@ export default async function ProjectPage({
       <Navbar />
       <main className="px-6 pb-32 pt-32">
         <div className="mx-auto max-w-container">
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-text"
+          <SectionNavLink
+            sectionId="projects"
+            className="inline-flex cursor-pointer items-center gap-2 border-0 bg-transparent p-0 text-sm text-text-muted transition-colors hover:text-text"
           >
             ← All projects
-          </Link>
+          </SectionNavLink>
 
           <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[260px_1fr] lg:gap-16">
             {/* ── RAIL ───────────────────────────────────────────── */}

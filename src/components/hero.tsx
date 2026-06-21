@@ -1,9 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight } from "./icons";
+import { ArrowUpRight } from "./icons";
 import Image from "next/image";
 import { TechIcon, TechPill } from "./tech-pill";
 import { Button } from "./ui/button";
+import { navigateToSection } from "@/lib/scroll-to-section";
+import { usePathname, useRouter } from "next/navigation";
 
 const marqueeIcons = [
   "JavaScript",
@@ -21,6 +23,13 @@ const marqueeIcons = [
 ];
 
 export function Hero() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const goToSection = (id: string) => {
+    navigateToSection(id, pathname, router);
+  };
+
   return (
     <section id="top" className="pt-[150px] pb-15 bg-bg-2/40">
       <div className="relative px-6 max-w-container mx-auto grid lg:grid-cols-[1fr_400px] justify-center items-center gap-10 overflow-hidden">
@@ -68,9 +77,12 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Button href="#projects">
-              See my work
-              <ArrowRight size={16} />
+            <Button
+              onClick={() => goToSection("projects")}
+              className="cursor-pointer"
+            >
+              <span>See my work</span>
+              <ArrowUpRight size={20} className="fill-bg" />
             </Button>
             <Button
               href="https://github.com/ilhamriz"
@@ -78,8 +90,8 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <TechIcon label={"Github"} size={16} />
-              github.com/ilhamriz
+              <TechIcon label={"Github"} size={18} />
+              <span>github.com/ilhamriz</span>
             </Button>
           </motion.div>
         </div>

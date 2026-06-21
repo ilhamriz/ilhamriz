@@ -3,24 +3,35 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { ArrowUpRight, MenuIcon, Close } from "./icons";
 import { cn } from "@/lib/utils";
+import {
+  consumePendingSectionScroll,
+  navigateToSection,
+} from "@/lib/scroll-to-section";
 import { Button } from "./ui/button";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Projects", id: "projects" },
+  { label: "Experience", id: "experience" },
+  { label: "Contact", id: "contact" },
 ];
 
-const sectionIds = links.map((l) => l.href.slice(1));
+const sectionIds = links.map((l) => l.id);
 
 export function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+
+  const goToSection = (id: string) => {
+    navigateToSection(id, pathname, router);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,6 +41,10 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (pathname !== "/") return;
+
+    consumePendingSectionScroll();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,7 +58,7 @@ export function Navbar() {
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   // Lock body scroll while the full-screen mobile menu is open.
   useEffect(() => {
@@ -72,12 +87,14 @@ export function Navbar() {
 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => {
-            const isActive = active === link.href.slice(1);
+            const isActive = pathname === "/" && active === link.id;
             return (
-              <li key={link.href}>
-                <a
-                  href={`/${link.href}`}
-                  className="group relative inline-flex items-center gap-2 py-1 text-sm transition-colors"
+              <li key={link.id}>
+                <button
+                  type="button"
+                  onClick={() => goToSection(link.id)}
+                  aria-current={isActive ? "true" : undefined}
+                  className="group relative inline-flex cursor-pointer items-center gap-2 border-0 bg-transparent py-1 text-sm transition-colors"
                 >
                   {/* Reserved space so the label doesn't shift when the dot
                       appears — same accent-dot vocabulary as the bullet
@@ -105,13 +122,17 @@ export function Navbar() {
                       isActive ? "right-0" : "right-full",
                     )}
                   />
-                </a>
+                </button>
               </li>
             );
           })}
         </ul>
 
-        <Button href="/#contact" size="sm" className="hidden md:inline-flex">
+        <Button
+          size="sm"
+          className="hidden md:inline-flex cursor-pointer"
+          onClick={() => goToSection("contact")}
+        >
           <span className="whitespace-nowrap">Get in touch</span>
           <div className="min-w-4">
             <ArrowUpRight size={16} className="fill-bg" />
@@ -150,7 +171,7 @@ export function Navbar() {
                 type="button"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="mr-4 w-10 h-10 flex justify-center items-center text-text-dim transition-colors hover:text-text"
+                className="w-10 h-10 flex justify-center items-center text-text-dim transition-colors hover:text-text"
               >
                 <Close size={18} />
               </button>
@@ -160,18 +181,22 @@ export function Navbar() {
 
             <ul className="flex flex-1 flex-col justify-center gap-1 px-6">
               {links.map((link, i) => {
-                const isActive = active === link.href.slice(1);
+                const isActive = pathname === "/" && active === link.id;
                 return (
                   <motion.li
-                    key={link.href}
+                    key={link.id}
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.25, delay: 0.05 + i * 0.04 }}
                   >
-                    <a
-                      href={`/${link.href}`}
-                      onClick={() => setOpen(false)}
-                      className="group flex items-baseline gap-4 border-b border-border py-4"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        goToSection(link.id);
+                        setOpen(false);
+                      }}
+                      aria-current={isActive ? "true" : undefined}
+                      className="group flex w-full cursor-pointer items-baseline gap-4 border-0 border-b border-border bg-transparent py-4 text-left"
                     >
                       <span className="font-mono text-xs text-text-muted">
                         0{i + 1}
@@ -186,7 +211,7 @@ export function Navbar() {
                       >
                         {link.label}
                       </span>
-                    </a>
+                    </button>
                   </motion.li>
                 );
               })}
@@ -194,8 +219,10 @@ export function Navbar() {
 
             <div className="px-6 pb-10">
               <Button
-                href="/#contact"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  goToSection("contact");
+                  setOpen(false);
+                }}
                 className="w-full justify-center"
               >
                 <span className="whitespace-nowrap">Get in touch</span>
