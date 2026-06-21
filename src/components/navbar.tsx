@@ -69,15 +69,19 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className={cn("fixed inset-x-0 top-0 z-50")}>
-      <nav
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300 border-b",
+        scrolled ? "border-border bg-bg/80" : "border-transparent",
+      )}
+    >
+      <div
         className={cn(
-          "mx-auto flex max-w-container items-center justify-between px-6 py-4 transition-colors duration-300 border-b",
-          scrolled
-            ? "border-border bg-bg/80 backdrop-blur-md"
-            : "border-transparent",
+          "absolute inset-0 z-[-1]",
+          scrolled ? "backdrop-blur-md" : "",
         )}
-      >
+      ></div>
+      <nav className="mx-auto flex max-w-container items-center justify-between px-6 py-4 transition-colors duration-300">
         <Link
           href="/"
           className="font-mono text-lg font-bold tracking-tight text-text"
@@ -227,7 +231,7 @@ export function Navbar() {
               >
                 <span className="whitespace-nowrap">Get in touch</span>
                 <div className="min-w-4">
-                  <ArrowUpRight size={16} className="fill-bg" />
+                  <ArrowUpRight size={20} className="fill-bg" />
                 </div>
               </Button>
             </div>
