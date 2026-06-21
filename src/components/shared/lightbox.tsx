@@ -14,6 +14,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { ProjectImage } from "@/lib/projects";
 import { ArrowLeft, ArrowRight, Close } from "../icons";
 import { useIsDesktop } from "@/lib/use-is-mobile";
+import { cn } from "@/lib/utils";
 
 type LightboxState = {
   images: ProjectImage[];
@@ -125,17 +126,39 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
 
             <motion.div
               key={state.index}
+              drag={state.images.length > 1 ? "x" : false}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.6}
+              onDragEnd={(_, info) => {
+                const SWIPE_DISTANCE = 60;
+                const SWIPE_VELOCITY = 500;
+                if (
+                  info.offset.x < -SWIPE_DISTANCE ||
+                  info.velocity.x < -SWIPE_VELOCITY
+                ) {
+                  step(1);
+                } else if (
+                  info.offset.x > SWIPE_DISTANCE ||
+                  info.velocity.x > SWIPE_VELOCITY
+                ) {
+                  step(-1);
+                }
+              }}
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.16 }}
-              className="flex max-h-[88vh] w-[min(94vw,1400px)] flex-col items-center"
+              className={cn(
+                "flex max-h-[88vh] w-[min(94vw,1400px)] touch-pan-y flex-col items-center",
+                state.images.length > 1 && "cursor-grab active:cursor-grabbing",
+              )}
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={current.file}
                 alt={current.alt}
-                className="max-h-[80vh] max-w-full rounded-md border border-border"
+                draggable={false}
+                className="max-h-[80vh] max-w-full select-none rounded-md border border-border"
               />
               <p className="mt-4 max-w-md text-center text-sm text-text-dim">
                 {current.alt}
