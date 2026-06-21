@@ -12,6 +12,8 @@ import {
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import type { ProjectImage } from "@/lib/projects";
+import { ArrowLeft, ArrowRight, Close } from "../icons";
+import { useIsDesktop } from "@/lib/use-is-mobile";
 
 type LightboxState = {
   images: ProjectImage[];
@@ -25,6 +27,7 @@ type LightboxContextValue = {
 const LightboxContext = createContext<LightboxContextValue | null>(null);
 
 export function LightboxProvider({ children }: { children: ReactNode }) {
+  const isDesktop = useIsDesktop();
   const [state, setState] = useState<LightboxState>(null);
 
   const open = useCallback((images: ProjectImage[], index: number) => {
@@ -84,12 +87,16 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
               type="button"
               aria-label="Close preview"
               onClick={close}
-              className="absolute right-5 top-5 font-mono text-xs uppercase tracking-widest text-text-muted transition-colors hover:text-text sm:right-8 sm:top-8"
+              className="group absolute right-5 top-5 cursor-pointer inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-text-muted transition-colors hover:text-text sm:right-8 sm:top-8"
             >
-              Close ✕
+              <span>Close</span>
+              <Close
+                size={14}
+                className="stroke-text-muted transition-colors group-hover:stroke-text"
+              />
             </button>
 
-            {state.images.length > 1 && (
+            {state.images.length > 1 && isDesktop && (
               <>
                 <button
                   type="button"
@@ -98,9 +105,9 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
                     e.stopPropagation();
                     step(-1);
                   }}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 px-2 py-3 text-3xl text-text-muted transition-colors hover:text-text sm:left-6"
+                  className="group absolute left-3 top-1/2 sm:left-6 -translate-y-1/2 p-2 cursor-pointer"
                 >
-                  ‹
+                  <ArrowLeft className="fill-text-muted transition-colors hover:fill-text" />
                 </button>
                 <button
                   type="button"
@@ -109,9 +116,9 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
                     e.stopPropagation();
                     step(1);
                   }}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 px-2 py-3 text-3xl text-text-muted transition-colors hover:text-text sm:right-6"
+                  className="group absolute right-3 top-1/2 sm:right-6 -translate-y-1/2 p-2 cursor-pointer"
                 >
-                  ›
+                  <ArrowRight className="fill-text-muted transition-colors hover:fill-text" />
                 </button>
               </>
             )}

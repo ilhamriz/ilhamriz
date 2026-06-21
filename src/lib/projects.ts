@@ -9,7 +9,11 @@ export type BuiltItem = {
   cols?: 1 | 2 | 3;
 };
 
-export const colsMap = { 1: "grid-cols-1", 2: "grid-cols-2", 3: "grid-cols-3" };
+export const colsMap = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "sm:grid-cols-2 lg:grid-cols-3",
+};
 
 export type Project = {
   number: string;
