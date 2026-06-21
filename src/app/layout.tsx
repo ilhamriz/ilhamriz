@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Inter,
-  JetBrains_Mono,
-  Playfair,
-  Playfair_Display,
-} from "next/font/google";
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });

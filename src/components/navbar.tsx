@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight, Close, MenuBig } from "./icons";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 const links = [
   { label: "About", href: "#about" },
@@ -87,21 +88,18 @@ export function Navbar() {
           })}
         </ul>
 
-        <Link
-          href="#contact"
-          className="hidden gap-1.5 md:flex justify-center items-center rounded-full border border-accent px-4 py-2 text-sm text-text transition-colors hover:bg-accent"
-        >
+        <Button href="#contact" size="sm" className="hidden md:inline-flex">
           <span className="whitespace-nowrap">Get in touch</span>
           <div className="min-w-4">
             <ArrowUpRight size={16} />
           </div>
-        </Link>
+        </Button>
 
         <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="text-text md:hidden"
+          className="text-text md:hidden cursor-pointer"
         >
           {open ? <Close /> : <MenuBig />}
         </button>
@@ -129,14 +127,16 @@ export function Navbar() {
                 </li>
               ))}
               <li className="pt-2">
-                <a
+                <Button
                   href="#contact"
+                  size="sm"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-accent px-4 py-2 text-sm text-text"
                 >
-                  Get in touch
-                  <ArrowUpRight />
-                </a>
+                  <span className="whitespace-nowrap">Get in touch</span>
+                  <div className="min-w-4">
+                    <ArrowUpRight size={16} />
+                  </div>
+                </Button>
               </li>
             </ul>
           </motion.div>
