@@ -4,12 +4,13 @@ import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-full border text-sm font-medium text-text whitespace-nowrap transition-colors outline-none select-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-full border text-sm font-medium whitespace-nowrap transition-colors outline-none select-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        primary: "border-accent bg-accent hover:bg-accent-hover",
-        secondary: "border-border bg-bg-2 hover:border-border-2 hover:bg-bg-3",
+        primary: "border-accent bg-accent text-bg hover:bg-accent-hover",
+        secondary:
+          "border-border bg-bg-2 text-text hover:border-border-2 hover:bg-bg-3",
       },
       size: {
         default: "px-6 py-3",
