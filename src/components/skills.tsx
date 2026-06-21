@@ -10,7 +10,10 @@ const groups = [
     items: ["JavaScript", "TypeScript", "React.js", "Next.js", "Angular"],
   },
   { title: "Styling", items: ["Tailwind CSS", "SCSS", "Framer Motion"] },
-  { title: "Tools", items: ["Git", "Figma", "REST API", "Vite.js", "Redux"] },
+  {
+    title: "Tools",
+    items: ["Github", "Figma", "REST API", "Vite.js", "Redux"],
+  },
   { title: "Mobile", items: ["Flutter"] },
   {
     title: "Other",
