@@ -63,7 +63,7 @@ function ContactRow({
       <span className="truncate text-sm text-text">{item.value}</span>
       <span
         className={cn(
-          "text-xs uppercase tracking-wider text-muted transition-colors group-hover:text-accent-hover",
+          "text-xs uppercase tracking-wider text-accent transition-colors group-hover:text-accent-hover",
           item.action !== "copy" && "flex items-center gap-0.5",
         )}
       >
@@ -75,7 +75,7 @@ function ContactRow({
         {item.action !== "copy" ? (
           <ArrowUpRight
             size={14}
-            className="fill-muted transition-colors group-hover:fill-accent-hover"
+            className="fill-accent transition-colors group-hover:fill-accent-hover"
           />
         ) : null}
       </span>

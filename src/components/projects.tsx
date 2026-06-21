@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-// import { ArrowRight } from 'lucide-react'
 import { SectionLabel } from "./shared/section-label";
 import { FadeUp } from "./motion";
 import { projects } from "@/lib/projects";
@@ -54,7 +53,6 @@ export function Projects() {
 
                 {/* TECH */}
                 <div className="mt-4 flex gap-6 justify-between items-end sm:items-center">
-                  {/* TODO: BUAT JADI H-SCROLL */}
                   <div className="flex flex-wrap gap-2">
                     {project.tech.slice(0, 4).map((t) => (
                       <TechPill
@@ -65,17 +63,12 @@ export function Projects() {
                       />
                     ))}
                   </div>
-                  <span className="inline-flex items-center gap-1.5 text-sm text-accent transition-colors group-hover:text-accent-hover">
+                  <span className="inline-flex items-center gap-1 text-xs uppercase tracking-wider font-mono text-accent transition-colors group-hover:text-accent-hover">
                     View
                     <ArrowUpRight size={16} className="fill-accent" />
                   </span>
                 </div>
               </div>
-
-              {/* <span className="hidden md:inline-flex items-center gap-1.5 text-sm text-accent transition-colors group-hover:text-accent-hover">
-                View
-                <ArrowUpRight size={16} className="fill-accent" />
-              </span> */}
             </Link>
           </FadeUp>
         ))}

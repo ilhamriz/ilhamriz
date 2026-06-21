@@ -6,7 +6,6 @@ export function SectionLabel({
   title: string;
 }) {
   return (
-    // <div className="mb-10 flex items-baseline gap-3 border-t border-border pt-6">
     <div className="mb-10 pt-6 flex items-baseline gap-3">
       <span className="font-mono text-xs uppercase tracking-wider text-gold">
         {number} /
