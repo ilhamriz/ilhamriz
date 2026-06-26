@@ -35,7 +35,7 @@ export function BackToTop() {
           transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="fixed bottom-8 right-8 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-accent shadow-[0_0_20px_4px_color-mix(in_srgb,var(--color-accent)_35%,transparent)] transition-colors hover:bg-accent-hover cursor-pointer"
+          className="fixed bottom-8 right-8 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-accent shadow-[0_0_20px_4px_color-mix(in_srgb,var(--color-accent)_35%,transparent)] transition-colors hover:bg-accent-hover cursor-pointer"
         >
           <ArrowUp size={20} className="fill-background" />
         </motion.button>
