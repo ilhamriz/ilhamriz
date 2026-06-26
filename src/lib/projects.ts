@@ -11,7 +11,7 @@ export type BuiltItem = {
 
 export const colsMap = {
   1: "grid-cols-1",
-  2: "grid-cols-2",
+  2: "sm:grid-cols-2",
   3: "sm:grid-cols-2 lg:grid-cols-3",
 };
 

@@ -71,7 +71,7 @@ export default async function ProjectPage({
           <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[260px_1fr] lg:gap-16">
             {/* ── RAIL ───────────────────────────────────────────── */}
             <FadeUp>
-              <aside className="lg:sticky lg:top-32 lg:self-start">
+              <aside className="lg:sticky lg:top-20 lg:self-start">
                 <span
                   aria-hidden
                   className="block font-serif text-[96px] italic leading-none text-border-2/60"
@@ -157,41 +157,28 @@ export default async function ProjectPage({
                   </FadeUp>
 
                   <div className="flex flex-col gap-16">
-                    {builtWithImages.map((item, i) => {
-                      // const imageOnRight = i % 2 === 0;
-                      return (
-                        <FadeUp key={item.text}>
-                          <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
-                            <div
-                              className={cn(
-                                "lg:col-span-5",
-                                // imageOnRight ? "lg:order-1" : "lg:order-2",
-                              )}
-                            >
-                              <span className="mb-3 block h-1.5 w-1.5 rounded-full bg-accent" />
-                              <p className="max-w-md text-lg leading-relaxed text-text-dim">
-                                {item.text}
-                              </p>
-                            </div>
-                            <div
-                              className={cn(
-                                "flex flex-col gap-4 lg:col-span-7",
-                                // imageOnRight ? "lg:order-2" : "lg:order-1",
-                              )}
-                            >
-                              {item.images?.map((image, i2) => (
-                                <LightboxTrigger
-                                  key={image.alt}
-                                  image={image}
-                                  images={item.images!}
-                                  index={i2}
-                                />
-                              ))}
-                            </div>
+                    {builtWithImages.map((item) => (
+                      <FadeUp key={item.text}>
+                        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
+                          <div className="lg:col-span-5 flex lg:flex-col gap-3">
+                            <span className="block h-1.5 w-1.5 mt-2.5 lg:mt-0 rounded-full bg-accent shrink-0" />
+                            <p className="lg:max-w-md text-lg leading-relaxed text-text-dim">
+                              {item.text}
+                            </p>
                           </div>
-                        </FadeUp>
-                      );
-                    })}
+                          <div className="flex flex-col gap-4 lg:col-span-7">
+                            {item.images?.map((image, i2) => (
+                              <LightboxTrigger
+                                key={image.alt}
+                                image={image}
+                                images={item.images!}
+                                index={i2}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </FadeUp>
+                    ))}
                   </div>
                 </section>
               )}
@@ -199,11 +186,7 @@ export default async function ProjectPage({
               {/* Supporting, image-less details */}
               {builtTextOnly.length > 0 && (
                 <section
-                  className={cn(
-                    // "border-t border-border pt-10",
-                    "pt-10",
-                    builtWithImages.length > 0 ? "mt-16" : "mt-20",
-                  )}
+                  className={builtWithImages.length > 0 ? "mt-16" : "mt-20"}
                 >
                   <FadeUp>
                     {builtWithImages.length === 0 && (
@@ -211,7 +194,7 @@ export default async function ProjectPage({
                         {project.gallery?.length ? "Approach" : "What I Built"}
                       </h2>
                     )}
-                    <ul className="flex max-w-2xl flex-col gap-4">
+                    <ul className="flex flex-col gap-4">
                       {builtTextOnly.map((item) => (
                         <li key={item.text} className="flex gap-3">
                           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
