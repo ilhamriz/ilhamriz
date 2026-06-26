@@ -42,7 +42,7 @@ export const projects: Project[] = [
     type: "Creative Platform · Web",
     year: "2026-Present",
     overview:
-      "Multi-brand creative platform for music festivals and cultural experiences in Indonesia, powering sub-brands Soundrenaline, Primaria, Magnumotion, Mahakaraoke, and Route 360°.",
+      "Multi-brand creative platform for music festivals and cultural experiences in Indonesia, powering sub-brands Soundrenaline, Primaria, Route360, Magnumotion, and Timeless Project.",
     overviewImage: [
       {
         file: "/assets/resonine/overview.jpg",
