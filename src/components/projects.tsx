@@ -14,7 +14,8 @@ export function Projects() {
       <SectionLabel number="03" title="Selected Work" />
 
       <SectionTitle subtitle="A mix of large-scale platforms, brand campaigns, and independent client work — each focused on performance and design.">
-        Built for real users, shipped to production.
+        Built for <span className="font-serif-italic">real users</span>, shipped
+        to production.
       </SectionTitle>
 
       <div className="flex flex-col border-t border-border">
