@@ -11,6 +11,7 @@ import {
   navigateToSection,
 } from "@/lib/scroll-to-section";
 import { Button } from "./ui/button";
+import LogoText from "./shared/logo-text";
 
 const links = [
   { label: "About", id: "about" },
@@ -84,9 +85,9 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-container items-center justify-between px-6 py-4 transition-colors duration-300">
         <Link
           href="/"
-          className="font-mono text-lg font-bold tracking-tight text-text"
+          className="h-6 font-mono text-lg font-bold tracking-tight text-text"
         >
-          MIR
+          <LogoText className="w-full h-full" />
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">

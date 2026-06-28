@@ -29,6 +29,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} bg-background`}
     >
+      <head>
+        <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon" />
+      </head>
       <body className="font-sans antialiased">
         {children}
         <BackToTop />
