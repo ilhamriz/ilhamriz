@@ -202,10 +202,10 @@ export function LightboxTrigger({
       type="button"
       onClick={() => ctx?.open(images, index)}
       aria-label={`Preview: ${image.alt}`}
-      className={
-        className ??
-        "block w-full overflow-hidden rounded-md border border-border transition-opacity hover:opacity-90"
-      }
+      className={cn(
+        "group block w-full overflow-hidden rounded-md border border-border cursor-pointer transition-opacity hover:opacity-90",
+        className,
+      )}
     >
       <Image
         src={image.file}
@@ -214,7 +214,10 @@ export function LightboxTrigger({
         height={height}
         loading={priority ? "eager" : undefined}
         fetchPriority={priority ? "high" : undefined}
-        className={imgClassName ?? "h-auto w-full"}
+        className={cn(
+          "h-auto w-full group-hover:scale-103 transition-transform duration-300",
+          imgClassName,
+        )}
       />
     </button>
   );
