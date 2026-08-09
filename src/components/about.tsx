@@ -28,7 +28,7 @@ export function About() {
       <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 md:gap-20">
         <FadeUp className="flex flex-col gap-6">
           <p className="text-pretty text-2xl text-text font-serif">
-            Frontend Developer with 4+ years building production web experiences
+            Frontend Developer with 5+ years building production web experiences
             across event platforms, brand campaigns, and independent client
             work.
           </p>
@@ -44,17 +44,9 @@ export function About() {
             lineup pages, news systems, and SEO implementation with JSON-LD
             structured data.
           </p>
-          {/* <p className="text-pretty text-2xl leading-relaxed text-text sm:text-3xl">
-              I&apos;m Ilham — a frontend developer who turns complex designs
-              into fast, accessible, and scalable web experiences. I&apos;ve
-              spent 4+ years building production platforms for music festivals,
-              brand activations, and mobile health tools. I care about clean
-              architecture, performance, and the craft of UI.
-            </p> */}
         </FadeUp>
 
         <FadeUp delay={1}>
-          {/* <dl className="flex flex-col"> */}
           <dl className="grid sm:grid-cols-2 gap-6 md:gap-x-8">
             {metadata.map((item) => (
               <div

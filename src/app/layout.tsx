@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Muhammad Ilham Rizky — Frontend Developer",
   description:
-    "Frontend Developer based in Jakarta, Indonesia. 4+ years building fast, accessible, and scalable web experiences with Next.js and React.",
+    "Frontend Developer based in Jakarta, Indonesia. 5+ years building fast, accessible, and scalable web experiences with Next.js and React.",
 };
 
 export default function RootLayout({

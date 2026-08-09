@@ -65,7 +65,7 @@ export function Hero() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-text-dim"
           >
             I&apos;m <b className="text-text">Ilham</b> — a Frontend Developer
-            with 4+ years building production web experiences. From large-scale
+            with 5+ years building production web experiences. From large-scale
             event platforms like Soundrenaline and Resonine to brand campaigns
             and independent client work, I focus on clean code, real
             performance, and UI that actually converts.
